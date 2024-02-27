@@ -1,6 +1,7 @@
 import os, sys
 os.system("pip install pyworld") # ==0.3.3
-os.system("pip -r requirements.txt --quiet") # 
+
+
 
 now_dir = os.getcwd()
 sys.path.append(now_dir)
@@ -3130,17 +3131,16 @@ def GradioSetup(UTheme=gr.themes.Soft()):
 
 def GradioRun(app):
     share_gradio_link = config.iscolab or config.paperspace
-    concurrency_count = 511
-    max_size = 1022
+
 
     if (
         config.iscolab or config.paperspace
     ):  
-        app.queue(concurrency_count=concurrency_count, max_size=max_size).launch(
+        app.queue().launch(
         favicon_path="./images/icon.png", share=True
         )
     else:
-        app.queue(concurrency_count=concurrency_count, max_size=max_size).launch(
+        app.queue().launch(
         favicon_path=".\images\icon.png",
         )
 
